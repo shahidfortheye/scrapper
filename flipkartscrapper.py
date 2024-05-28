@@ -91,9 +91,8 @@ class FlipkartScrapper:
         #     proxy = f"{proxy_host}:{proxy_port}"
         #     options.add_argument(f'--proxy-server=http://{proxy}')
         
-        driver = webdriver.Chrome(
-            options=options, service=Service(ChromeDriverManager(driver_version="2.26").install())
-        )
+        driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
+
 
         return driver
     
