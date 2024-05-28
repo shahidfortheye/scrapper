@@ -93,7 +93,6 @@ class FlipkartScrapper:
         
         driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
 
-
         return driver
     
     def fetch_html(self, obj):
@@ -108,7 +107,7 @@ class FlipkartScrapper:
         product_id = obj.get("product_id")
         url = obj.get("url")
         if html:
-            # print(html)
+            print(html)
             
 
             #  Parse HTML content using BeautifulSoup
