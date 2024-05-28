@@ -22,6 +22,7 @@ if response.status_code == 200:
     
     r = response.json()
     urls = r.get("data")
+    print(urls)
 else:
     urls = []
 # urls = [
@@ -98,6 +99,7 @@ class FlipkartScrapper:
     def fetch_html(self, obj):
         html = None
         try:
+            print(obj,"mmmmm")
             self.driver.get(obj.get("url"))
             # print("ppppppppppppppppppppppppppppssssssssssssssssssssssssssssssssssssss")
             html = self.driver.page_source
