@@ -38,42 +38,42 @@ else:
 
 class FlipkartScrapper:
     def __init__(self):
-        # self.proxy = self.get_proxy()
+        self.proxy = self.get_proxy()
         self.driver = self.get_driver()
 
-    # def get_proxy(self):
-    #     url = "http://httpbin.org/ip"
-    #     proxies = self.get_free_proxies()
-    #     proxy_ = None
-    #     for i in range(len(proxies)):
-
-    #         #printing req number
-    #         proxy = proxies[i]
-    #         print(proxy)
-    #         try:
-    #             response = requests.get(url, proxies = {"http":proxy, "https":proxy})
-    #             proxy_ = proxy
-    #             return proxy_
-    #         except:
-    #             # if the proxy Ip is pre occupied
-    #             return None
+    def get_proxy(self):
+         url = "http://httpbin.org/ip"
+         proxies = self.get_free_proxies()
+         proxy_ = None
+         for i in range(len(proxies)):
+        
+        #         #printing req number
+            proxy = proxies[i]
+        #         print(proxy)
+            try:
+                response = requests.get(url, proxies = {"http":proxy, "https":proxy})
+                proxy_ = proxy
+                return proxy_
+            except:
+                # if the proxy Ip is pre occupied
+                return None
             
 
-    # def get_free_proxies(self):
-    #     url = "https://free-proxy-list.net/"
-    #     # request and grab content
-    #     soup = bs(requests.get(url).content, 'html.parser')
-    #     # to store proxies
-    #     proxies = []
-    #     for row in soup.find("table", attrs={"class": "table-striped"}).find_all("tr")[1:]:
-    #         tds = row.find_all("td")
-    #         try:
-    #             ip = tds[0].text.strip()
-    #             port = tds[1].text.strip()
-    #             proxies.append(str(ip) + ":" + str(port))
-    #         except IndexError:
-    #             continue
-    #     return proxies
+    def get_free_proxies(self):
+        url = "https://free-proxy-list.net/"
+        # request and grab content
+        soup = bs(requests.get(url).content, 'html.parser')
+        # to store proxies
+        proxies = []
+        for row in soup.find("table", attrs={"class": "table-striped"}).find_all("tr")[1:]:
+            tds = row.find_all("td")
+            try:
+                ip = tds[0].text.strip()
+                port = tds[1].text.strip()
+                proxies.append(str(ip) + ":" + str(port))
+            except IndexError:
+                continue
+        return proxies
     
     def driver_quit(self):
         self.driver.quit()
@@ -84,13 +84,13 @@ class FlipkartScrapper:
         options.add_argument('--headless')
         options.add_argument('--no-sandbox')
         options.add_argument('--disable-dev-shm-usage')
-        # if self.proxy:
-        proxy_host = "119.42.58.205"
-        proxy_port = "8000"
+        if self.proxy:
+            proxy_host = self.proxy[0]
+            proxy_port = self.proxy[1]
         
-        #     # Create proxy string
-        proxy = f"{proxy_host}:{proxy_port}"
-        options.add_argument(f'--proxy-server=http://{proxy}')
+            #     # Create proxy string
+            proxy = f"{proxy_host}:{proxy_port}"
+            options.add_argument(f'--proxy-server=http://{proxy}')
         driver = webdriver.Chrome(options=options)
         # driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
         print(driver)
