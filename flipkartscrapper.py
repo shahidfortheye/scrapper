@@ -99,7 +99,7 @@ class FlipkartScrapper:
     def fetch_html(self, obj):
         html = None
         try:
-            print(obj,"mmmmm")
+            print(obj.get("url"),"mmmmm")
             self.driver.get(obj.get("url"))
             # print("ppppppppppppppppppppppppppppssssssssssssssssssssssssssssssssssssss")
             html = self.driver.page_source
