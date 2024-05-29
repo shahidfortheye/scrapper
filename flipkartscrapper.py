@@ -85,12 +85,12 @@ class FlipkartScrapper:
         options.add_argument('--no-sandbox')
         options.add_argument('--disable-dev-shm-usage')
         # if self.proxy:
-        #     proxy_host = self.proxy[0]
-        #     proxy_port = self.proxy[1]
+        proxy_host = "119.42.58.205"
+        proxy_port = "8000"
         
         #     # Create proxy string
-        #     proxy = f"{proxy_host}:{proxy_port}"
-        #     options.add_argument(f'--proxy-server=http://{proxy}')
+        proxy = f"{proxy_host}:{proxy_port}"
+        options.add_argument(f'--proxy-server=http://{proxy}')
         driver = webdriver.Chrome(options=options)
         # driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
         print(driver)
