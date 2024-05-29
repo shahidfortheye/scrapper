@@ -93,7 +93,7 @@ class FlipkartScrapper:
         #     options.add_argument(f'--proxy-server=http://{proxy}')
         
         driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
-
+        print(driver)
         return driver
     
     def fetch_html(self, obj):
