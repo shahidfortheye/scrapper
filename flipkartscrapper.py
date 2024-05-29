@@ -38,7 +38,7 @@ else:
 
 class FlipkartScrapper:
     def __init__(self):
-        self.proxy = self.get_proxy()
+        # self.proxy = self.get_proxy()
         self.driver = self.get_driver()
 
     def get_proxy(self):
@@ -84,14 +84,14 @@ class FlipkartScrapper:
         options.add_argument('--headless')
         options.add_argument('--no-sandbox')
         options.add_argument('--disable-dev-shm-usage')
-        if self.proxy:
-            proxy_host = self.proxy[0]
-            proxy_port = self.proxy[1]
+        # if self.proxy:
+        #     proxy_host = self.proxy[0]
+        #     proxy_port = self.proxy[1]
         
-            #     # Create proxy string
-            proxy = f"{proxy_host}:{proxy_port}"
-            options.add_argument(f'--proxy-server=http://{proxy}')
-        driver = webdriver.Chrome(options=options)
+        #     #     # Create proxy string
+        #     proxy = f"{proxy_host}:{proxy_port}"
+        #     options.add_argument(f'--proxy-server=http://{proxy}')
+        # driver = webdriver.Chrome(options=options)
         # driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
         print(driver)
         return driver
