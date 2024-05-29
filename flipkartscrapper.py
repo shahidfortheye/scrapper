@@ -104,7 +104,7 @@ class FlipkartScrapper:
             # print("ppppppppppppppppppppppppppppssssssssssssssssssssssssssssssssssssss")
             html = self.driver.page_source
         except:
-            pass
+            print("EROOOOOOOOOOOOOOr")
         
         product_id = obj.get("product_id")
         url = obj.get("url")
