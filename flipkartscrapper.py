@@ -22,7 +22,7 @@ if response.status_code == 200:
     
     r = response.json()
     urls = r.get("data")
-    print(urls)
+    #print(urls)
 else:
     urls = []
 # urls = [
