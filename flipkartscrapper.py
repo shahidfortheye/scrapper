@@ -2,7 +2,7 @@
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 
-from webdriver_manager.chrome import ChromeDriverManager
+# from webdriver_manager.chrome import ChromeDriverManager
 
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
@@ -81,7 +81,7 @@ class FlipkartScrapper:
     def get_driver(self):
         # path = "C:/Users/Shahid.DESKTOP-JH5TIT1/Downloads/chromedriver-win64/chromedriver-win64/chromedriver.exe"
         options = Options()
-        options.add_argument('--headless')
+        # options.add_argument('--headless')
         options.add_argument('--no-sandbox')
         options.add_argument('--disable-dev-shm-usage')
         options.add_argument("--window-size=1920,1080")
@@ -98,8 +98,8 @@ class FlipkartScrapper:
         #     #     # Create proxy string
         proxy = f"{proxy_host}:{proxy_port}"
         # options.add_argument(f'--proxy-server=http://{proxy}')
-        # driver = webdriver.Chrome(options=options)
-        driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
+        driver = webdriver.Chrome(options=options)
+        # driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
         print(driver)
         return driver
     
