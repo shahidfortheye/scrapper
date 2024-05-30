@@ -81,7 +81,7 @@ class FlipkartScrapper:
     def get_driver(self):
         # path = "C:/Users/Shahid.DESKTOP-JH5TIT1/Downloads/chromedriver-win64/chromedriver-win64/chromedriver.exe"
         options = Options()
-        # options.add_argument('--headless')
+        options.add_argument('--headless')
         options.add_argument('--no-sandbox')
         options.add_argument('--disable-dev-shm-usage')
         options.add_argument("--window-size=1920,1080")
@@ -116,7 +116,7 @@ class FlipkartScrapper:
         product_id = obj.get("product_id")
         url = obj.get("url")
         if html:
-            print(html)
+            # print(html)
             
 
             #  Parse HTML content using BeautifulSoup
@@ -209,7 +209,7 @@ obj1 = FlipkartScrapper()
 data = []
 for i in urls:
     result= obj1.fetch_html(i)
-    # print(result)
+    print(result)
     if result:
         data.append(result)
         req = UpdateDatatoMongo(result)
