@@ -92,12 +92,12 @@ class FlipkartScrapper:
         options.add_experimental_option("excludeSwitches", ["enable-automation"])
         options.add_experimental_option('useAutomationExtension', False)
         # if self.proxy:
-        #     proxy_host = self.proxy[0]
-        #     proxy_port = self.proxy[1]
+        proxy_host = "172.17.0.1"
+        proxy_port = "8080"
         
         #     #     # Create proxy string
-        #     proxy = f"{proxy_host}:{proxy_port}"
-        #     options.add_argument(f'--proxy-server=http://{proxy}')
+        proxy = f"{proxy_host}:{proxy_port}"
+        options.add_argument(f'--proxy-server=http://{proxy}')
         driver = webdriver.Chrome(options=options)
         # driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
         print(driver)
