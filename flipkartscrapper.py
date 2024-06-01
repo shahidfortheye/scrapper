@@ -14,6 +14,7 @@ import requests
 import random
 from bs4 import BeautifulSoup as bs
 import traceback
+import os
 
 response = requests.get("http://15.207.107.16:8000/get-all-urls/")
 
@@ -80,6 +81,7 @@ class FlipkartScrapper:
         
     def get_driver(self):
         # path = "C:/Users/Shahid.DESKTOP-JH5TIT1/Downloads/chromedriver-win64/chromedriver-win64/chromedriver.exe"
+        os.environ["DISPLAY"] = ":99"
         options = Options()
         # options.add_argument('--headless')
         options.add_argument('--no-sandbox')
