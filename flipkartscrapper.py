@@ -15,7 +15,7 @@ import random
 from bs4 import BeautifulSoup as bs
 import traceback
 
-response = requests.get("https://4f78-121-240-3-154.ngrok-free.app/get-all-urls/")
+response = requests.get("http://15.207.107.16:8000/get-all-urls/")
 
 # Checking the response status code
 if response.status_code == 200:
@@ -193,7 +193,7 @@ class UpdateDatatoMongo:
     def update_data(self):
 
         # URL of the API endpoint
-        url = 'https://4f78-121-240-3-154.ngrok-free.app/update-product/'
+        url = 'http://15.207.107.16:8000/update-product/'
 
         # Making a POST request
         response = requests.post(url, data=self.data)
