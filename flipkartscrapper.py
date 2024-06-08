@@ -16,7 +16,7 @@ from bs4 import BeautifulSoup as bs
 import traceback
 import os
 
-response = requests.get("http://65.0.104.5:8000/get-all-urls/")
+response = requests.get("https://65.0.104.5:8000/get-all-urls/")
 
 # Checking the response status code
 if response.status_code == 200:
@@ -195,7 +195,7 @@ class UpdateDatatoMongo:
     def update_data(self):
 
         # URL of the API endpoint
-        url = 'http://65.0.104.5:8000/update-product/'
+        url = 'https://65.0.104.5:8000/update-product/'
 
         # Making a POST request
         response = requests.post(url, data=self.data)
